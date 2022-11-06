@@ -8,6 +8,7 @@ setuptools.setup(
         'flask',
         'flask_sqlalchemy',
         'flask-wtf',
-        'jsonschema'
+        'jsonschema',
+        'recipe-scrapers'
     ],
 )

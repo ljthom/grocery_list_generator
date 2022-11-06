@@ -2,3 +2,5 @@ flask
 flask_sqlalchemy
 flask-wtf
 jsonschema
+recipe-scrapers
+requests
