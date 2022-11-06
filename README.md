@@ -17,7 +17,7 @@ User downloads the application from https://github.com/ljthom/grocery_list_gener
 
 User unzips grocery_list_generator-main into directory of preference
 
-From directory user runs 'python -m pip install -e .'
+From directory in cmd or terminal user runs 'python -m pip install -e .'
 
 
 Starting the application:  
