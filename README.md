@@ -1,10 +1,16 @@
 # grocery_list_generator
 CMCS495 Capstone - Grocery List Generator
 
-Requirements before using:  User must have a PC and Python 3.3 or greater installed.  Pantry works on Linux, Windows, and macOS but has not yet been tested on macOS at the time of this user guide entry.
+Requirements before using:  
+User must have a PC and Python 3.3 or greater installed: https://www.python.org/downloads/
+User must have installed pip: https://pip.pypa.io/en/stable/installation/
 
-Installing the application:  User downloads the application from https://github.com/ljthom/grocery_list_generator
-User runs setup.py to install necessary modules used by Pantry.
+
+Installing the application:
+Pantry works on Linux, Windows, and macOS but has not yet been tested on macOS at the time of this user guide entry.
+User downloads the application from https://github.com/ljthom/grocery_list_generator
+User unzips grocery_list_generator-main into directory of preference
+From directory user runs 'python -m pip install -e .'
 
 Starting the application:  
 User opens a command prompt from the directory containg the downloaded application above under ‘grocery_list_generator’ and enters “python -m flask –app pantry run” to run the program at the localhost.
