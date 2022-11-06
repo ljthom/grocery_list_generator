@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+{% block body %}
+
+<form method="POST" id="submit_actions" enctype="multipart/form-data">
+    <div class="form_entry">
+       <h3>Enter List File Location Below: </h3>
+       <table class="site_selection_buttons">
+            <tr class="site_selection_buttons">
+                <td class="site_selection_buttons">
+                    <input
+                        class="table_button"
+                        id="upload_list"
+                        type="submit"
+                        name="upload_list"
+                        value="Upload List"
+                    >
+                </td>
+                <td class="site_selection_buttons">
+                    <input
+                        class="table_button"
+                        id="upload_location"
+                        type="file"
+                        name="upload_location"
+                    >
+                </td>
+            </tr>
+       </table>
+    </div>
+</form>
+
+{% endblock %}

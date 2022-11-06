@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block body %}
+
+{% include 'add_ingredient.html' %}
+
+<hr class="parent">
+    <form method="POST" id="submit_actions" enctype="multipart/form-data">
+        <table class="submit_buttons">
+            <tr class="submit_buttons">
+                <td class="submit_buttons">
+                    <input
+                        class="table_button"
+                        id="site_select_redirect"
+                        type="submit"
+                        name="site_select_redirect"
+                        value="Back To Site Selection"
+                    >
+                </td>
+                <td class="submit_buttons">
+                    <input
+                        class="table_button"
+                        id="build_grocery_list"
+                        type="submit"
+                        name="build_grocery_list"
+                        value="Build Grocery List!"
+                        onclick="buildJson({grocery_list})"
+                    >
+                </td>
+                <td class="submit_buttons">
+                    <input
+                        class="table_button"
+                        id="add_ingredient_entry"
+                        type="submit"
+                        name="add_ingredient_entry"
+                        value="Add Another Ingredient"
+                        onclick="addIngredientForm">
+                </td>
+            </tr>
+        </table>
+        <input type="hidden" id="grocery_list" name="grocery_list" value="">
+    </form>
+    <!-- set a hidden form field with a JSON object containing the entered ingredients -->
+    <script type="text/javascript">
+        function buildJson(grocery_list) {
+            var formsData = {};
+            var forms = document.getElementsByTagName('form');
+            for (var i = 0; i < forms.length; i++) {
+                var formData = {};
+                const data = new FormData(forms[i]);
+                data.forEach(function(value, key) {
+                    if (value != '') {
+                        formData[key] = value;
+                    }
+                });
+                try {
+                    if (grocery_list.ingredients != null) {
+                        if (grocery_list.ingredients.includes(forms[i].id)) {
+                            formsData[forms[i].id] = formData;
+                        }
+                    }
+                } catch (error) {
+                    continue;
+                }
+            }
+            console.log(JSON.stringify(grocery_list, null, 4));
+            document.getElementById('grocery_list').value = JSON.stringify(grocery_list)
+        }
+    </script>
+
+{% endblock %}

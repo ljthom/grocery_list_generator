@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+{% block body %}
+    <form method="POST" id="add_ingredient" action="/ingredient_form.html">
+        <div class="form_entry">
+            <dl class="form_entry">
+                <dt class="form_entry">
+                    Ingredient Name
+                </dt>
+                <dd class="form_entry">
+                    <input type="text" name="ingredient_name" value="">
+                </dd>
+                <dt class="form_entry">
+                    Quanitity Estimate
+                </dt>
+                <dd class="form_entry">
+                    <input type="text" name="quantity" value="">
+                </dd>
+                <dt class="form_entry">
+                    Unit Type
+                </dt>
+                <dd>
+                    <select name="units" id="unit_select">
+                        <option value="">--Unit Selection--</option>
+                        <option value="oz">Ounces</option>
+                        <option value="tbsp">Tablespoons</option>
+                        <option value="tsp">Teaspoons</option>
+                        <option value="cup">Cups</option>
+                        <option value="pint">Pints</option>
+                        <option value="g">Grams</option>
+                        <option value="mg">Milligrams</option>
+                        <option value="kg">Kilograms</option>
+                        <option value="lbs">Pounds</option>
+                        <option value="gal">Gallons</option>
+                    </select>
+                </dd>
+            </dl>
+        </div>
+    </form>
+{% endblock %}

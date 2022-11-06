@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% if error %}
+        <p class="error"><strong>Error: </strong>{{ error }}</p>
+    {% else %}
+        <br>
+    {% endif %}
+        <hr class="parent">
+        {% include 'build_new_grocery_list.html' %}
+        <br>
+        <hr class="parent">
+        {% include 'upload_list.html' %}
+
+
+{% endblock %}

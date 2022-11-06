@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!-- Form to generate the site selection to generate the grocery lists from, probably easiest flow.
+    User can enter ingredients on next screen while the database is populating on the back end. -->
+<form method="POST" action="/ingredient_form">
+
+    <div class="site_selection">
+        <table class="recipe_site_selection">
+            <tr class="recipe_site_selection">
+                <th class="recipe_site_selection">
+                    Enabled
+                </th>
+                <th class="recipe_site_selection">
+                    Site Name
+                </th>
+                <th class="recipe_site_selection">
+                    Site Description
+                </th>
+            </tr>
+            <!-- Copy Pasta for more selections, probably a more programmatic way to do it -->
+            <!-- Recipe Site 1 -->
+            <tr class="recipe_site_selection">
+                <!-- Enabled CheckBox -->
+                <td class="recipe_site_selection">
+                    <input
+                        type="checkbox"
+                        id="site_one"
+                        name="recipe_site"
+                        value="site_one"
+                        checked="checked"
+                    >
+                </td>
+                <!-- Site Name -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_one">Site One, preferrably a human readable name that's linked
+                    </label>
+                </td>
+                <!-- Site Description -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_one">Site One Description Goes Here, maybe the description can be scraped from the Website
+                    </label>
+                </td>
+            </tr>
+            <!-- Recipe Site 2 -->
+            <tr class="recipe_site_selection">
+                <!-- Enabled CheckBox -->
+                <td class="recipe_site_selection">
+                    <input
+                        type="checkbox"
+                        id="site_two"
+                        name="recipe_site"
+                        value="site_two"
+                        checked="checked"
+                    >
+                </td>
+                <!-- Site Name -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_two">Site Two, preferrably a human readable name that's linked
+                    </label>
+                </td>
+                <!-- Site Description -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_two">Site One Description Goes Here, maybe the description can be scraped from the Website
+                    </label>
+                </td>
+            </tr>
+            <!-- Recipe Site 3 -->
+            <tr class="recipe_site_selection">
+                <!-- Enabled CheckBox -->
+                <td class="recipe_site_selection">
+                    <input
+                        type="checkbox"
+                        id="site_three"
+                        name="recipe_site"
+                        value="site_three"
+                        checked="checked"
+                    >
+                </td>
+                <!-- Site Name -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_three">Site Three, preferrably a human readable name that's linked
+                    </label>
+                </td>
+                <!-- Site Description -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_three">Site Three Description Goes Here, maybe the description can be scraped from the Website
+                    </label>
+                </td>
+            </tr>
+            <!-- Recipe Site 4 -->
+            <tr class="recipe_site_selection">
+                <!-- Enabled CheckBox -->
+                <td class="recipe_site_selection">
+                    <input
+                        type="checkbox"
+                        id="site_four"
+                        name="recipe_site"
+                        value="site_four"
+                        checked="checked"
+                    >
+                </td>
+                <!-- Site Name -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_four">Site Four, preferrably a human readable name that's linked
+                    </label>
+                </td>
+                <!-- Site Description -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_four">Site Four Description Goes Here, maybe the description can be scraped from the Website
+                    </label>
+                </td>
+            </tr>
+            <!-- Recipe Site 5 -->
+            <tr class="recipe_site_selection">
+                <!-- Enabled CheckBox -->
+                <td class="recipe_site_selection">
+                    <input
+                        type="checkbox"
+                        id="site_five"
+                        name="recipe_site"
+                        value="site_five"
+                        checked="checked"
+                    >
+                </td>
+                <!-- Site Name -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_five">Site Five, preferrably a human readable name that's linked
+                    </label>
+                </td>
+                <!-- Site Description -->
+                <td class="recipe_site_selection">
+                    <label
+                        for="site_five">Site Five Description Goes Here, maybe the description can be scraped from the Website
+                    </label>
+                </td>
+            </tr>
+        </table>
+        <!-- Button Stuff -->
+        <script type="text/javascript">
+            function checkAll(checkedBool) {
+                var checkBoxes = document.querySelectorAll('input[name=recipe_site]');
+                for (var i = 0; i < checkBoxes.length; i++){
+                    checkBoxes[i].checked = checkedBool;
+                }
+            }
+        </script>
+        <table class="site_selection_buttons">
+            <tr class="site_selection_buttons">
+                <td class="site_selection_buttons">
+                    <input
+                        class="table_button"
+                        id="get_sites"
+                        type="submit"
+                        name="get_sites"
+                        value="Create List From Selected Sites"
+                    >
+                </td>
+                <td>
+                    <input
+                        class="table_button"
+                        id="select_all"
+                        type="button"
+                        name="select_all"
+                        value="Select All Sites"
+                        onclick="checkAll(true)"
+                    >
+                </td>
+                <td>
+                    <input
+                        class="table_button"
+                        id="clear_all"
+                        type="button"
+                        name="clear_all"
+                        value="Clear All"
+                        onclick="checkAll(false)">
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

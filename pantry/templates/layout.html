@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pantry</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% include 'banner.html' %}
+</head>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flashes">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+{% block body %}
+
+{% endblock %}
+<footer>
+    {% include 'footer.html' %}
+</footer>

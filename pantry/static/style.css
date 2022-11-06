@@ -1,0 +1,42 @@
+html { font-family: sans-serif; background: #353535; padding: 1rem; }
+body { max-width: 960px; margin: 0 auto; }
+
+p.error { color: #CB4154 }
+
+h1 { font-family: serif; color: #D9D9D9; margin: 1rem; text-align: center; }
+h2 { font-family: serif; color: #D9D9D9; margin: 1rem; text-align: center; }
+h3 { font-family: serif; color: #D9D9D9; margin: 1rem; text-align: center; }
+table { width: 100%; }
+table, th, td { border: 1px solid; }
+th { background-color: #FFFFFF; color: #000000; }
+tr { color: #000000; }
+tr:nth-child(even) { background-color: #284B63; color: #D9D9D9; }
+tr:nth-child(odd) { background-color: #D9D9D9; color: #284B63; }
+
+hr.parent { border-top: 8px solid #D9D9D9; border-radius: 5px; }
+hr.child { border-top: 3px dashed #D9D9D9; }
+
+.banner { color: #D9D9D9; text-align: center; }
+
+input.table_button {
+    background-color: #D9D9D9;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 0 5px #616161;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+input.table_button:hover { background-color: #FFFFFF; }
+input.table_button:active { background-color: #FFFFFF; box-shado: 0 3px #000000; transform: translateY(2px); }
+
+table.site_selection_buttons { border: none; background: #353535; }
+td.site_selection_buttons { border: none; background: #353535; }
+
+h1.form_entry { font-family: serif; color: #3C6E72; margin: 1rem 0; }
+dt.form_entry { color: #D9D9D9 }
+
+li.credits { color: #D9d9d9 }
