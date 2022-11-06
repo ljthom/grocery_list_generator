@@ -7,8 +7,8 @@ from pantry.db import sites
 def index(error=None):
     recipe_sites = sites
     if request.method == "POST":
-        if request.form.get('get_sites'):
-            print("Scraping Sites")
+        print("getting recipe selections: ")
+        print()
         return redirect(url_for('ingredient_form'))
 
     return render_template('index.html', recipe_sites=recipe_sites, error=error)

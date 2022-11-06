@@ -12,9 +12,10 @@ def ingredient_form(grocery_list=None, error=None):
     if request.method == "POST":
         if request.form.get('site_select_redirect'):
             return redirect(url_for('index'))
-        if request.form.get('build_grocery_list'):
-            entered_ingredients = request.form.get('grocery_list')
-            # do the back end stuff
+        if request.form.get('recipe_site'):
+            selected_sites = request.form.getlist('recipe_site')
+            print(selected_sites)
+            # scrape_sites(selected_sites)
         if request.form.get('add_ingredient_entry'):
             print("Adding another Entry")
 

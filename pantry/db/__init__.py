@@ -1,5 +1,6 @@
 sites = [
         {
+            'site_id': "budget_bites",
             'base_uri': "https://www.budgetbytes.com",
             'name': "BudgetBytes",
             'description': (
@@ -11,6 +12,7 @@ sites = [
             ]
         },
         {
+            'site_id': "fitmen_cook",
             'base_uri': "https://fitmencook.com",
             'name': "FitMen Cook",
             'description': (

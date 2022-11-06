@@ -11,7 +11,10 @@ table, th, td { border: 1px solid; }
 th { background-color: #FFFFFF; color: #000000; }
 tr { color: #000000; }
 tr:nth-child(even) { background-color: #284B63; color: #D9D9D9; }
+
 tr:nth-child(odd) { background-color: #D9D9D9; color: #284B63; }
+
+a.recipe_site_selection { color: inherit; }
 
 hr.parent { border-top: 8px solid #D9D9D9; border-radius: 5px; }
 hr.child { border-top: 3px dashed #D9D9D9; }
