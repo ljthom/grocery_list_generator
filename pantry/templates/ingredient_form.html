@@ -32,10 +32,11 @@
                     <input
                         class="table_button"
                         id="add_ingredient_entry"
-                        type="submit"
+                        type="button"
                         name="add_ingredient_entry"
                         value="Add Another Ingredient"
-                        onclick="addIngredientForm">
+                        onclick="addIngredientForm()"
+                    >
                 </td>
             </tr>
         </table>
@@ -66,6 +67,16 @@
             }
             console.log(JSON.stringify(grocery_list, null, 4));
             document.getElementById('grocery_list').value = JSON.stringify(grocery_list)
+        }
+    </script>
+    <script>
+        function addIngredientForm() {
+            var i = 0;
+            var forms = document.getElementById('ingredient_forms');
+            var form = document.getElementById('ingredient_form');
+            var addForm = form.cloneNode(true);
+            addForm.id = "ingredient_form" + ++i;
+            forms.append(addForm);
         }
     </script>
 

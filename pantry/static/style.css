@@ -40,3 +40,6 @@ h1.form_entry { font-family: serif; color: #3C6E72; margin: 1rem 0; }
 dt.form_entry { color: #D9D9D9 }
 
 li.credits { color: #D9d9d9 }
+
+.form_column { color: #D9d9d9; float: left; width: 33.33%; }
+.form_row:after { content: ""; display: table; clear: both; }
