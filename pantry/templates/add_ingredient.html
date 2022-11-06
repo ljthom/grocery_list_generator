@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 
 {% block body %}
+    <hr class="parent">
     <div id="ingredient_forms">
         <div id="ingredient_form">
             <form method="POST" id="add_ingredient" action="/ingredient_form.html">
                 <div class="form_entry">
                     <div class="form_row">
-                        <div class="form_column">
-                            Ingredient Name: <input type="text" name="ingredient_name" value="">
+                        <div class="form_column" id="ingredient_name">
+                            Ingredient Name:<input type="text" name="ingredient_name" value="">
                         </div>
-                        <div class="form_column">
-                            Quantity Estimate: <input type="text" name="quantity" value="">
+                        <div class="form_column" id="quantity" >
+                            Quantity Estimate:<input type="text" name="quantity" maxlength="8" size="8" value="">
                         </div>
-                        <div class="form_column">
+                        <div class="form_column" id="unit_type">
                             Unit Type:
                              <select name="units" id="unit_select">
                                 <option value="">--Unit Selection--</option>
@@ -29,6 +30,7 @@
                             </select>
                         </div>
                     </div>
+                    <hr class="child">
                 </div>
             </form>
         </div>

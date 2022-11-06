@@ -41,5 +41,9 @@ dt.form_entry { color: #D9D9D9 }
 
 li.credits { color: #D9d9d9 }
 
-.form_column { color: #D9d9d9; float: left; width: 33.33%; }
+.form_row { width: 100%; }
+.form_column { color: #D9d9d9; float: left; width: 300px; text-align: center;  }
 .form_row:after { content: ""; display: table; clear: both; }
+#ingredient_name { border-right: solid #D9d9d9; }
+#quantity { border-right: solid #D9d9d9; }
+#unit_type { border-right: solid #D9d9d9; }
