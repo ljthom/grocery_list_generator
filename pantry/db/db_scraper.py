@@ -50,7 +50,6 @@ if __name__ == '__main__':
         thread = threading.Thread(target=scrape, args=(urls,i))
         threads.append(thread)
         thread.start()
-#        threading.Thread(target=scrape(urls[i])).start()
     for thread in threads:
         thread.join()
     print(db)
