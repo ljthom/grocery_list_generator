@@ -9,8 +9,14 @@ import os
 import time
 
 db = {}
-#urls = ["https://www.marthastewart.com/sitemaps/recipe/1/sitemap.xml"]
-urls = ["https://www.marthastewart.com/sitemaps/recipe/1/sitemap.xml", "https://www.marthastewart.com/sitemaps/recipe/2/sitemap.xml", "https://www.eatingwell.com/sitemaps/recipe/1/sitemap.xml", "https://www.southernliving.com/sitemap_1.xml", "https://www.budgetbytes.com/post-sitemap.xml", "https://www.budgetbytes.com/post-sitemap2.xml", "https://fitmencook.com/recipes-sitemap.xml", "https://fitmencook.com/recipes-sitemap2.xml"]
+#urls = ["https://www.zenbelly.com/post-sitemap3.xml"]
+urls = ["https://www.zenbelly.com/post-sitemap1.xml", "https://www.zenbelly.com/post-sitemap2.xml", 
+        "https://www.zenbelly.com/post-sitemap3.xml", "https://www.bodybuilding.com/sitemap-bbcomrecipe.xml", 
+        "https://www.myrecipes.com/sitemaps/recipe/1/sitemap.xml", "https://www.marthastewart.com/sitemaps/recipe/1/sitemap.xml", 
+        "https://www.marthastewart.com/sitemaps/recipe/2/sitemap.xml", "https://www.eatingwell.com/sitemaps/recipe/1/sitemap.xml", 
+        "https://www.southernliving.com/sitemap_1.xml", "https://www.budgetbytes.com/post-sitemap.xml", 
+        "https://www.budgetbytes.com/post-sitemap2.xml", "https://fitmencook.com/recipes-sitemap.xml", 
+        "https://fitmencook.com/recipes-sitemap2.xml"]
 failed = []
 
 def scrape(urls, index):
@@ -29,9 +35,7 @@ def scrape(urls, index):
             if counter > 2:
                 break
             scraper = scrape_me(tag.strip())
-            if tag in db:
-                continue
-            print(f"{os.getpid()} is processing: {scraper.canonical_url()}", end='\r', flush=True)
+            print(f"{threading.get_ident()} is processing: {scraper.canonical_url()}", end='\r', flush=True)
             db.update({tag:[scraper.title(), scraper.ingredients()]})
             counter += 1
         except AttributeError:
