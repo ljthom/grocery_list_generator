@@ -1,25 +1,33 @@
 from recipe_scrapers import scrape_me
+import urllib.parse
+import threading
 import requests
 import re
+import os
+import time
 
-# give the url as a string, it can be url from any site listed below
-#scraper = scrape_me('https://www.allrecipes.com/recipe/158968/spinach-and-feta-turkey-burgers/')
 item = {}
 db = {}
-counter = 0
+#urls = ["https://fitmencook.com/recipes-sitemap2.xml"]
+urls = ["https://www.budgetbytes.com/post-sitemap.xml", "https://www.budgetbytes.com/post-sitemap2.xml", "https://fitmencook.com/recipes-sitemap.xml", "https://fitmencook.com/recipes-sitemap2.xml"]
+failed = []
 
-urls={1:"https://www.budgetbytes.com/post-sitemap.xml", 2:"https://www.budgetbytes.com/post-sitemap2.xml", 3:"https://fitmencook.com/recipes-sitemap.xml", 4:"https://fitmencook.com/recipes-sitemap2.xml"}
-for url in urls.values():
-    xml = requests.get(url).text
-    pages = re.findall("<loc>.*</loc>", xml)
-
+def scrape(urls):
+    print()
+    print(f"Processing {len(urls)} URLs from {urls}")
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'}
+    xml = requests.get(urls).text
+    if "Forbidden" in xml:
+        xml = requests.get(urls, headers=headers).text
+    pages = re.findall(r"(https?://\S+</loc>)", xml, re.MULTILINE)
+    counter = 0
     for each in pages:
-        tag = each.strip("<loc>").strip("</loc>")
+        tag = each.strip("</loc>")
         try:
             if counter > 10:
                 break
             scraper = scrape_me(tag.strip())
-            print(f"Processing: {scraper.canonical_url()}")
+            print(f"{os.getpid()} is processing: {scraper.canonical_url()}", end='\r', flush=True)
             item.update({"title":scraper.title()})
             item.update({"url":scraper.canonical_url()})
             item.update({"ingredients":scraper.ingredients()})
@@ -30,6 +38,12 @@ for url in urls.values():
         except AttributeError:
             print(AttributeError)
         except TypeError:
-            print(f"No Schema found for the url {scraper.canonical_url()}")
+            failed.append(f'{scraper.canonical_url()}')
 
-print(db)
+if __name__ == '__main__':
+    start = time.time()
+    for i in range(len(urls)):
+        threading.Thread(target=scrape(urls[i])).start()
+    print(db)
+    print("Total time: ", time.time() - start)
+    print(failed)
