@@ -1,16 +1,25 @@
+import argparse
+import lxml
+import os
+import re
+import requests
+import time
+import threading
+import urllib.parse
 from recipe_scrapers import scrape_me
 from bs4 import BeautifulSoup
-import lxml
-import urllib.parse
-import threading
-import requests
-import re
-import os
-import time
+
+parser = argparse.ArgumentParser()
+parser.add_argument("url", nargs='+', help="Enter any number of URLs")
+args = parser.parse_args()
 
 db = {}
-#urls = ["https://www.zenbelly.com/post-sitemap3.xml"]
-urls = ["https://www.zenbelly.com/post-sitemap1.xml", "https://www.zenbelly.com/post-sitemap2.xml", 
+urls = []
+if args.url:
+    for each in args.url:
+         urls.append(each)
+else:
+    urls = ["https://www.zenbelly.com/post-sitemap1.xml", "https://www.zenbelly.com/post-sitemap2.xml", 
         "https://www.zenbelly.com/post-sitemap3.xml", "https://www.bodybuilding.com/sitemap-bbcomrecipe.xml", 
         "https://www.myrecipes.com/sitemaps/recipe/1/sitemap.xml", "https://www.marthastewart.com/sitemaps/recipe/1/sitemap.xml", 
         "https://www.marthastewart.com/sitemaps/recipe/2/sitemap.xml", "https://www.eatingwell.com/sitemaps/recipe/1/sitemap.xml", 
