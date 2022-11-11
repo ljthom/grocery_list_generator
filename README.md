@@ -48,5 +48,4 @@ optional arguments:
   -u URL [URL ...], --url URL [URL ...]
                         Enter any number of URLs
   -n NUM, --num NUM     Number of results to return
-```
 - Information for populating DB will come soon ...
