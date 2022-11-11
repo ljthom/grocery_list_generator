@@ -12,6 +12,8 @@
 - Pantry works on a PC running Linux, Windows, and macOS but has not yet been tested on macOS at the time of this user guide entry.
 - Must have Python 3.3 or greater installed: https://www.python.org/downloads/
 - Must have installed pip: https://pip.pypa.io/en/stable/installation/
+- Flask version 2.2.2+
+
 
 
 
