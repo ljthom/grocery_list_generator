@@ -34,3 +34,11 @@
 - Navigate to the grocery_list_generator directory 
 - Enter “python -m flask –-app pantry run” to run the program at the localhost.
 - Open a browser of choice and enter 127.0.0.1:5000 as the URI to open the graphical user interface.
+
+### Running the Scraper:  
+
+- Windows: Open a command prompt
+- Linux & macOS: Open a terminal
+- Navigate to the grocery_list_generator/pantry/db directory 
+- Enter “python3 db_scraper.py -u <URL1> [<URL2>] [-n <Num Results>]”.
+- Information for populating DB will come soon ...
