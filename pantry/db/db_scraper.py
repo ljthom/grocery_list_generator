@@ -10,7 +10,7 @@ from recipe_scrapers import scrape_me
 from bs4 import BeautifulSoup
 
 parser = argparse.ArgumentParser()
-parser.add_argument("url", nargs='+', help="Enter any number of URLs")
+parser.add_argument("-u", "--url", nargs='+', help="Enter any number of URLs", required=False)
 args = parser.parse_args()
 
 db = {}
