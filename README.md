@@ -41,11 +41,12 @@
 - Linux & macOS: Open a terminal
 - Navigate to the grocery_list_generator/pantry/db directory 
 - Enter “python3 db_scraper.py -u \<URL1\> [\<URL2\>] [-n \<Num Results\>]”.
-- ```usage: db_scraper.py [-h] [-u URL [URL ...]] [-n NUM]
+```usage: db_scraper.py [-h] [-u URL [URL ...]] [-n NUM]
 
 optional arguments:
   -h, --help            show this help message and exit
   -u URL [URL ...], --url URL [URL ...]
                         Enter any number of URLs
   -n NUM, --num NUM     Number of results to return
+  ```
 - Information for populating DB will come soon ...
