@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-u", "--url", nargs='+', help="Enter any number of URLs", required=False)
+parser.add_argument("-n", "--num", help="Number of results to return", required=False)
 args = parser.parse_args()
 
 db = {}
@@ -41,11 +42,11 @@ def scrape(urls, index):
     for each in pages:
         tag = re.sub('<[^<]+?>', '', str(each))
         try:
-            if counter > 2:
+            if counter >= int(args.num):
                 break
             scraper = scrape_me(tag.strip())
             print(f"{threading.get_ident()} is processing: {scraper.canonical_url()}", end='\r', flush=True)
-            db.update({tag:[scraper.title(), scraper.ingredients()]})
+            db.update({tag:[scraper.title(), scraper.ingredients(), scraper.image()]})
             counter += 1
         except AttributeError:
             print(AttributeError)
@@ -53,6 +54,7 @@ def scrape(urls, index):
             failed.append(f'{scraper.canonical_url()}')
 
 if __name__ == '__main__':
+    print(args.num)
     start = time.time()
     threads = []
     for i in range(len(urls)):
@@ -61,6 +63,9 @@ if __name__ == '__main__':
         thread.start()
     for thread in threads:
         thread.join()
-    print(db)
+#    print(db)
+    for each in db:
+        print()
+        print(db[each])
     print("Total time: ", time.time() - start)
 #    print(failed)
