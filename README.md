@@ -40,7 +40,7 @@
 - Windows: Open a command prompt
 - Linux & macOS: Open a terminal
 - Navigate to the grocery_list_generator/pantry/db directory 
-- Enter “python3 db_scraper.py -u \<URL1\> [\<URL2\>] [-n \<Num Results\>]”.
+- Enter ```python3 db_scraper.py -u \<URL1\> [\<URL2\>] [-n \<Num Results\>]```.
 ```usage: db_scraper.py [-h] [-u URL [URL ...]] [-n NUM]
 
 optional arguments:
