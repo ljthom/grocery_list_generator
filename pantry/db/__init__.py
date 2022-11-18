@@ -29,7 +29,7 @@ sites = [
         {
             'site_id': "zenbelly",
             'base_uri': "https://www.zenbelly.com",
-            'name': "Zenbelly,
+            'name': "Zenbelly",
             'description': (
                 "Zenbelly is a all about keeping it simple and focuses on two things:"
                 "1. a delicious meal"
@@ -42,7 +42,7 @@ sites = [
         {
             'site_id': "bodybuilding",
             'base_uri': "https://www.bodybuilding.com",
-            'name': "BodyBuilding,
+            'name': "BodyBuilding",
             'description': (
                 "Recipes for those that want to stay fit and eat a nice, lean meal"
                 "or to bulk up in a matter of weeks!"
