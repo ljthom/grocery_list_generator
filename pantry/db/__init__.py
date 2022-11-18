@@ -25,5 +25,30 @@ sites = [
             'sitemaps': [
                 "/recipe-sitemap.xml", "/recipe-sitemap2.xml"
             ]
+        },
+        {
+            'site_id': "zenbelly",
+            'base_uri': "https://www.zenbelly.com",
+            'name': "Zenbelly,
+            'description': (
+                "Zenbelly is a all about keeping it simple and focuses on two things:"
+                "1. a delicious meal"
+                "2. more kitchen confidence"
+            ),
+            'sitemaps': [
+                "/post-sitemap1.xml", "/post-sitemap2.xml", "/post-sitemap3.xml"
+            ]
+        },
+        {
+            'site_id': "bodybuilding",
+            'base_uri': "https://www.bodybuilding.com",
+            'name': "BodyBuilding,
+            'description': (
+                "Recipes for those that want to stay fit and eat a nice, lean meal"
+                "or to bulk up in a matter of weeks!"
+            ),
+            'sitemaps': [
+                "/sitemap-bbcomrecipe.xml"
+            ]
         }
     ]
