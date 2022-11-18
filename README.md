@@ -59,4 +59,4 @@ optional arguments:
 - Navigate to the grocery_list_generator/pantry/db directory 
 - Enter ```sqlite3 <DB>.db```
 - ```.schema```
-- ```SELECT * FROM recipes;
+- ```SELECT * FROM recipes;```
