@@ -51,3 +51,12 @@ optional arguments:
   -n NUM, --num NUM     Number of results to return
   ```
 - Information for populating DB will come soon ...
+
+### Accessing DB:  
+
+- Windows: Open a command prompt
+- Linux & macOS: Open a terminal
+- Navigate to the grocery_list_generator/pantry/db directory 
+- Enter ```sqlite3 <DB>.db```
+- ```.schema```
+- ```SELECT * FROM recipes;
