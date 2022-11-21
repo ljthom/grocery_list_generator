@@ -1,0 +1,1 @@
+FLASK_APP=pantry/__init__.py
