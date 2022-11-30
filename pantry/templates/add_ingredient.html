@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-
 {% block body %}
     <hr class="parent">
     <div id="ingredient_forms">
-        <div id="ingredient_form">
-            <form method="POST" id="add_ingredient" action="/ingredient_form.html">
-                <div class="form_entry">
-                    <div class="form_row">
-                        <div class="form_column" id="ingredient_name">
-                            Ingredient Name:<input type="text" name="ingredient_name" value="">
-                        </div>
-                        <div class="form_column" id="quantity" >
-                            Quantity Estimate:<input type="text" name="quantity" maxlength="8" size="8" value="">
-                        </div>
-                        <div class="form_column" id="unit_type">
-                            Unit Type:
-                             <select name="units" id="unit_select">
-                                <option value="">--Unit Selection--</option>
-                                <option value="oz">Ounces</option>
-                                <option value="tbsp">Tablespoons</option>
-                                <option value="tsp">Teaspoons</option>
-                                <option value="cup">Cups</option>
-                                <option value="pint">Pints</option>
-                                <option value="g">Grams</option>
-                                <option value="mg">Milligrams</option>
-                                <option value="kg">Kilograms</option>
-                                <option value="lbs">Pounds</option>
-                                <option value="gal">Gallons</option>
-                            </select>
-                        </div>
+            <div class="form_entry">
+                <div class="form_row">
+                    <div class="form_column" id="ingredient_name">
+                        {{ form.name.label }} {{ form.name }}
                     </div>
-                    <hr class="child">
+                    <div class="form_column" id="quantity">
+                        {{ form.quantity.label }} (( form.quantity }}}
+                    </div>
+                    <div class="form_column" id="unit_type">
+                        Unit Type:
+                         <select class="ingredient_entry" name="units" id="unit_select">
+                            <option value="">--Unit Selection--</option>
+                            <option value="oz">Ounces</option>
+                            <option value="tbsp">Tablespoons</option>
+                            <option value="tsp">Teaspoons</option>
+                            <option value="cup">Cups</option>
+                            <option value="pint">Pints</option>
+                            <option value="g">Grams</option>
+                            <option value="mg">Milligrams</option>
+                            <option value="kg">Kilograms</option>
+                            <option value="lbs">Pounds</option>
+                            <option value="gal">Gallons</option>
+                        </select>
+                    </div>
                 </div>
-            </form>
+                <hr class="child">
+            </div>
         </div>
     </div>
 

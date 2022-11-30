@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 {% extends "layout.html" %}
 
 {% block body %}
-
-{% include 'add_ingredient.html' %}
-
+<form method="POST" action="/ingredient_form">
+    {% include 'add_ingredient.html' %}
+</form>
 <hr class="parent">
     <form method="POST" id="submit_actions" enctype="multipart/form-data">
         <table class="submit_buttons">
@@ -21,10 +20,10 @@
                 <td class="submit_buttons">
                     <input
                         class="table_button"
-                        id="build_grocery_list"
+                        id="find_recipes"
                         type="submit"
-                        name="build_grocery_list"
-                        value="Build Grocery List!"
+                        name="find_recipes"
+                        value="Find Recipes!"
                         onclick="buildJson({grocery_list})"
                     >
                 </td>
@@ -46,7 +45,7 @@
     <script type="text/javascript">
         function buildJson(grocery_list) {
             var formsData = {};
-            var forms = document.getElementsByTagName('form');
+            var forms = document.getElementsByClassName('ingredient_entry');
             for (var i = 0; i < forms.length; i++) {
                 var formData = {};
                 const data = new FormData(forms[i]);
@@ -56,9 +55,9 @@
                     }
                 });
                 try {
-                    if (grocery_list.ingredients != null) {
-                        if (grocery_list.ingredients.includes(forms[i].id)) {
-                            formsData[forms[i].id] = formData;
+                    if (grocery_list != null) {
+                        if (grocery_list.includes(forms[i].tagName)) {
+                            formsData[forms[i].tagName] = formData;
                         }
                     }
                 } catch (error) {

@@ -1,15 +1,15 @@
 import os
 import secrets
-from flask import Flask, redirect, render_template, request, url_for
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from pathlib import Path
 
 
 current_directory = Path.cwd()
 app = Flask('pantry', instance_relative_config=True)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db.db'  # whatever we name our database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test_db.db_utils'  # whatever we name our database
 app.config['SQLALCHEMY_BINDS'] = {
-    'database_name', 'sqlite:///test_db.db'
+    'database_name', 'sqlite:///test_db.db_utils'
 }
 
 # In case we want to use JSON for passing data, this makes sure the format is correct
@@ -30,11 +30,12 @@ app.config[
     'SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # not exactly sure what this does sqlalchemy needs it for something
 app.config['TESTING'] = True  # We're still testing so give us debuggery
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)  # secret stuff
-
+db = SQLAlchemy(app)
 # imported after loading app because of a circular import issue.  views dependent on app, but pages won't load unless
 # imported into init
-from pantry.views import index, ingredient_form
-# db = SQLAlchemy(app)
+
+from pantry.views import index, ingredient_form, recipe_selection
+
 
 # table setup can go here and anything that needs to be loaded on a first run
 
