@@ -1,0 +1,6 @@
+flask>=2.2.2
+flask_sqlalchemy
+flask-wtf
+jsonschema
+recipe-scrapers
+requests
