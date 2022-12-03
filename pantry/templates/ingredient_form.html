@@ -1,22 +1,13 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="/ingredient_form">
+<form method="POST" action="/">
     {% include 'add_ingredient.html' %}
 </form>
 <hr class="parent">
     <form method="POST" id="submit_actions" enctype="multipart/form-data">
         <table class="submit_buttons">
             <tr class="submit_buttons">
-                <td class="submit_buttons">
-                    <input
-                        class="table_button"
-                        id="site_select_redirect"
-                        type="submit"
-                        name="site_select_redirect"
-                        value="Back To Site Selection"
-                    >
-                </td>
                 <td class="submit_buttons">
                     <input
                         class="table_button"

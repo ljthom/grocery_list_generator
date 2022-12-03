@@ -2,12 +2,12 @@
     <hr class="parent">
     <div id="ingredient_forms">
             <div class="form_entry">
-                <div class="form_row">
+                <div class="form_row" id="ingredient_form">
                     <div class="form_column" id="ingredient_name">
                         {{ form.name.label }} {{ form.name }}
                     </div>
                     <div class="form_column" id="quantity">
-                        {{ form.quantity.label }} (( form.quantity }}}
+                        {{ form.quantity.label }} {{ form.quantity }}
                     </div>
                     <div class="form_column" id="unit_type">
                         Unit Type:
@@ -26,7 +26,7 @@
                         </select>
                     </div>
                 </div>
-                <hr class="child">
+
             </div>
         </div>
     </div>
