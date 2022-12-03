@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+pantry/PantryExceptions.py
+pantry/__init__.py
+pantry.egg-info/PKG-INFO
+pantry.egg-info/SOURCES.txt
+pantry.egg-info/dependency_links.txt
+pantry.egg-info/requires.txt
+pantry.egg-info/top_level.txt
