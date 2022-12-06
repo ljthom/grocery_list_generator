@@ -1,4 +1,8 @@
 import setuptools
+import zipfile
+
+with zipfile.ZipFile("./pantry/models/recipes.db.zip", 'r') as zip_ref:
+    zip_ref.extractall("./pantry/models/recipes.db")
 
 with open('requirements.txt', encoding='utf-8') as reqs:
     required = reqs.read().splitlines()
