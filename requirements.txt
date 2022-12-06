@@ -10,3 +10,4 @@ lxml>=4.9.1
 beautifulsoup4>=4.11.1
 WTForms>=3.0.1
 setuptools==65.6.0
+zipfile
