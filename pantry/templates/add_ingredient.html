@@ -4,26 +4,13 @@
             <div class="form_entry">
                 <div class="form_row">
                     <div class="form_column" id="ingredient_name">
-                        {{ form.name.label }} {{ form.name }}
+                        {{ form.ingredient.label }} {{ form.ingredient }}
                     </div>
                     <div class="form_column" id="quantity">
-                        {{ form.quantity.label }} (( form.quantity }}}
+                        {{ form.quantity.label }} {{ form.quantity }}
                     </div>
                     <div class="form_column" id="unit_type">
-                        Unit Type:
-                         <select class="ingredient_entry" name="units" id="unit_select">
-                            <option value="">--Unit Selection--</option>
-                            <option value="oz">Ounces</option>
-                            <option value="tbsp">Tablespoons</option>
-                            <option value="tsp">Teaspoons</option>
-                            <option value="cup">Cups</option>
-                            <option value="pint">Pints</option>
-                            <option value="g">Grams</option>
-                            <option value="mg">Milligrams</option>
-                            <option value="kg">Kilograms</option>
-                            <option value="lbs">Pounds</option>
-                            <option value="gal">Gallons</option>
-                        </select>
+                        {{ form.unit.label}} {{form.unit}}
                     </div>
                 </div>
                 <hr class="child">

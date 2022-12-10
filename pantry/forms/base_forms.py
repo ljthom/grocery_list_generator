@@ -4,7 +4,16 @@
 from wtforms.fields import SelectMultipleField
 from wtforms.validators import StopValidation
 from wtforms import widgets
+from flask_wtf import FlaskForm
+from wtforms_alchemy import model_form_factory
+from pantry import db
 
+
+BaseModelForm = model_form_factory(FlaskForm)
+
+class ModelForm(BaseModelForm):
+    def get_session(self):
+        return db.session
 
 class MultiCheckBoxField(SelectMultipleField):
     widget = widgets.ListWidget

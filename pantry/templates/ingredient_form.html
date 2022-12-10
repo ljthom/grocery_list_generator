@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="/ingredient_form">
-    {% include 'add_ingredient.html' %}
-</form>
+
 <hr class="parent">
-    <form method="POST" id="submit_actions" enctype="multipart/form-data">
+    <form method="POST" id="submit_actions" enctype="multipart/form-data" action="/">
+        {% include 'add_ingredient.html' %}
+        {{ form.csrf_token }}
+        {{ form.hidden_tag()}}
         <table class="submit_buttons">
             <tr class="submit_buttons">
                 <td class="submit_buttons">
@@ -24,7 +25,6 @@
                         type="submit"
                         name="find_recipes"
                         value="Find Recipes!"
-                        onclick="buildJson({grocery_list})"
                     >
                 </td>
                 <td class="submit_buttons">
@@ -72,7 +72,7 @@
         function addIngredientForm() {
             var i = 0;
             var forms = document.getElementById('ingredient_forms');
-            var form = document.getElementById('ingredient_form');
+            var form = document.getElementsByClassName('form_row');
             var addForm = form.cloneNode(true);
             addForm.id = "ingredient_form" + ++i;
             forms.append(addForm);

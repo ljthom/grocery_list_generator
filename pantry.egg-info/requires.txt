@@ -1,6 +1,12 @@
 flask>=2.2.2
+sqlalchemy>=1.4.44
 flask_sqlalchemy
 flask-wtf
+WTForms-Alchemy
 jsonschema
 recipe-scrapers
-requests
+requests>=2.28.1
+lxml>=4.9.1
+beautifulsoup4>=4.11.1
+WTForms>=3.0.1
+setuptools==65.6.0

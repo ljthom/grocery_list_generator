@@ -3,8 +3,8 @@ from pantry.models.base_model import BaseModel
 
 
 class IngredientEntry(BaseModel):
-    __tablename__ = 'ingredients'
-    name = Column(
+    __tablename__ = 'userInput'
+    ingredient = Column(
         String(32),
         nullable=False,
         info={'label': 'Ingredient Name'}
