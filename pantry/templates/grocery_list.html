@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <h1>Shopping List</h1>
+    <h3>Copy and paste into text editor of choice:</h3>
+    {% for ingredient in ingredients %}
+    <li class="shopping_list">
+        {{ ingredient }}
+    </li>
+    {% endfor %}
+
+
+{% endblock %}

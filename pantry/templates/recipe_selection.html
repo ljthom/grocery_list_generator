@@ -4,7 +4,7 @@
 
 {% block body %}
 <h1>Using the ingredients on hand: ({{ ingredients }}) build a shopping list to create the dishes below:</h1>
-    <form method="POST" action="/recipe_selection">
+    <form method="POST" action="/grocery_list">
         <div class="site_selection">
             <table class="recipe_site_selection">
                 <tr class="recipe_site_selection">
@@ -21,10 +21,8 @@
                         Ingredients
                     </th>
                 </tr>
-                {% set count = 0 %}
                 {% for recipe in recipes %}
-                    {% set count = count + 1 %}
-                    {% set recipe_id = 'recipe_id' + count|string %}
+                    {% set recipe_id = 'recipe_id' + loop.index|string %}
                     <tr class="recipe_site_selection">
                         <!-- Enabled CheckBox -->
                         <td class="recipe_site_selection">
@@ -32,7 +30,7 @@
                                 type="checkbox"
                                 id="{{ recipe_id }}"
                                 name="recipe_return"
-                                value="{{ recipe_id }}"
+                                value="{{ recipe.ingredients }}"
                                 checked="checked"
                             >
                         </td>
@@ -51,9 +49,12 @@
                         </td>
                         <!-- Recipe Ingredients -->
                         <td class="recipe_site_selection">
+                            <label
+                                for="{{ recipe_id }}">
                             {% for ingredient in recipe.ingredients %}
                                 <li>{{ingredient}}</li>
                             {% endfor %}
+                            </label>
                         </td>
                     </tr>
                 {% endfor %}

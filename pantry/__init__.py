@@ -34,7 +34,7 @@ db = SQLAlchemy(app)
 engine = create_engine("sqlite:///./pantry/models/recipes.db")
 db_session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-from pantry.views import index, recipe_selection
+from pantry.views import index, recipe_selection, grocery_list
 
 
 
