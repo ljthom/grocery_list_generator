@@ -1,20 +1,104 @@
 {% extends 'layout.html' %}
-{% block body %}
-<h1> Recipe selector check boxes </h1>
-{{ ingredients }}
-<br>
-<hr class="parent">
-{% for recipe in recipes %}
-    <hr class="child">
-    {{ recipe.url }}
-    <hr class="child">
-    {% for ingredient in recipe.ingredients %}
-        {{ ingredient }}
-    {% endfor %}
-    <hr class="child">
-    <img src="{{ recipe.image }}" />
-    <hr class="parent">
 
-    <br>
-{% endfor %}
+<!-- Form to generate the recipe selection to generate the grocery lists from -->
+
+{% block body %}
+<h1>Using the ingredients on hand: ({{ ingredients }}) build a shopping list to create the dishes below:</h1>
+    <form method="POST" action="/recipe_selection">
+        <div class="site_selection">
+            <table class="recipe_site_selection">
+                <tr class="recipe_site_selection">
+                    <th class="recipe_site_selection">
+                        Selected:
+                    </th>
+                    <th class="recipe_site_selection">
+                        Does it look tasty?
+                    </th>
+                    <th class="recipe_site_selection">
+                        Recipe URL
+                    </th>
+                    <th class="recipe_site_selection">
+                        Ingredients
+                    </th>
+                </tr>
+                {% set count = 0 %}
+                {% for recipe in recipes %}
+                    {% set count = count + 1 %}
+                    {% set recipe_id = 'recipe_id' + count|string %}
+                    <tr class="recipe_site_selection">
+                        <!-- Enabled CheckBox -->
+                        <td class="recipe_site_selection">
+                            <input
+                                type="checkbox"
+                                id="{{ recipe_id }}"
+                                name="recipe_return"
+                                value="{{ recipe_id }}"
+                                checked="checked"
+                            >
+                        </td>
+                        <!-- Recipe Thumbnail -->
+                        <td class="recipe_site_selection">
+                            <img class="recipe_selection_image" src="{{ recipe.image }}" />
+                        </td>
+                        <!-- Site Name -->
+                        <td class="recipe_site_selection">
+                            <label
+                                for="{{ recipe_id }}">
+                                <a class="recipe_site_selection" href="{{ recipe.url }}" target="_blank" >
+                                    Click to open site in new tab.
+                                </a>
+                            </label>
+                        </td>
+                        <!-- Recipe Ingredients -->
+                        <td class="recipe_site_selection">
+                            {% for ingredient in recipe.ingredients %}
+                                <li>{{ingredient}}</li>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <!-- Button Stuff -->
+            <script type="text/javascript">
+                function checkAll(checkedBool) {
+                    var checkBoxes = document.querySelectorAll('input[name=recipe_return]');
+                    for (var i = 0; i < checkBoxes.length; i++){
+                        checkBoxes[i].checked = checkedBool;
+                    }
+                }
+            </script>
+            <table class="site_selection_buttons">
+                <tr class="site_selection_buttons">
+                    <td class="site_selection_buttons">
+                        <input
+                            class="table_button"
+                            id="get_list"
+                            type="submit"
+                            name="get_list"
+                            value="Create List From Selected Recipes"
+                        >
+                    </td>
+                    <td>
+                        <input
+                            class="table_button"
+                            id="select_all"
+                            type="button"
+                            name="select_all"
+                            value="Select All Recipes"
+                            onclick="checkAll(true)"
+                        >
+                    </td>
+                    <td>
+                        <input
+                            class="table_button"
+                            id="clear_all"
+                            type="button"
+                            name="clear_all"
+                            value="Clear All"
+                            onclick="checkAll(false)">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
 {% endblock %}
