@@ -1,6 +1,11 @@
 LICENSE
 README.md
 setup.py
+Pantry.egg-info/PKG-INFO
+Pantry.egg-info/SOURCES.txt
+Pantry.egg-info/dependency_links.txt
+Pantry.egg-info/requires.txt
+Pantry.egg-info/top_level.txt
 pantry/PantryExceptions.py
 pantry/__init__.py
 pantry.egg-info/PKG-INFO

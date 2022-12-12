@@ -10,7 +10,6 @@ def get_ingredients(ingredients):
             for each in recipes:
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
-            print(len(results))
             return results
         elif len(ingredients) == 2:
             for ingredient in ingredients:
@@ -18,9 +17,6 @@ def get_ingredients(ingredients):
             for each in list(set(recipes[0]).intersection(recipes[1])):
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
-            print(len(results))
-            if len(results) > 10:
-                return results[:10]
             return results
         else:
             for ingredient in ingredients:
@@ -31,7 +27,4 @@ def get_ingredients(ingredients):
             for each in list(final_recipes):
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
-            print(len(results))
-            if len(results) > 10:
-                return results[:10]
             return results

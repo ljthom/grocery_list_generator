@@ -12,5 +12,5 @@ def recipe_selection(ingredients=None, form=None, error=None):
     for recipe in query:
         recipe_ingredients = eval(recipe.get('ingredients'))
         recipe['ingredients'] = recipe_ingredients
-    print(recipe)
+
     return render_template('recipe_selection.html', recipes=query, ingredients=ingredients, error=error)
