@@ -10,6 +10,7 @@ def ingredient_form(grocery_list=None, error=None):
     form = IngredientEntryForm()
     if request.method == "POST":
         if form.validate_on_submit():
+            print(form.ingredient.data)
             get_ingredients(form.ingredient.data)
     return render_template('ingredient_form.html', form=form, error=error)
 
