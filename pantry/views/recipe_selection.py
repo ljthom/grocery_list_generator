@@ -2,11 +2,15 @@ import json
 
 from pantry import app
 from flask import redirect, render_template, request, url_for
+from pantry.db_utils.get_ingredients import get_ingredients
 
 
 @app.route("/recipe_selection", methods=["GET", "POST"])
-def recipe_selection(recipes=None, error=None):
-    recipes = json.dumps(request.args.get('recipes', None))
-    print(type(recipes))
-    print(recipes)
-    return render_template('recipe_selection.html', recipes=recipes, error=error)
+def recipe_selection(ingredients=None, form=None, error=None):
+    ingredients = request.args.get('ingredients', None)
+    query = get_ingredients(ingredients.split(','))
+    for recipe in query:
+        recipe_ingredients = eval(recipe.get('ingredients'))
+        recipe['ingredients'] = recipe_ingredients
+    print(recipe)
+    return render_template('recipe_selection.html', recipes=query, ingredients=ingredients, error=error)
