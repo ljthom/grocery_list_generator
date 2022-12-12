@@ -19,6 +19,8 @@ def get_ingredients(ingredients):
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
             print(len(results))
+            if len(results) > 10:
+                return results[:10]
             return results
         else:
             for ingredient in ingredients:
@@ -30,4 +32,6 @@ def get_ingredients(ingredients):
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
             print(len(results))
+            if len(results) > 10:
+                return results[:10]
             return results
