@@ -5,8 +5,8 @@ def get_ingredients(ingredients):
     recipes = []
     results = []
     with engine.connect() as conn:
-        if type(ingredients) == str:
-            recipes = conn.execute(text("select url,ingredients,image from recipes where ingredients like :i"), {"i": "%" + ingredients + "%"}).fetchall()
+        if len(ingredients) == 1:
+            recipes = conn.execute(text("select url,ingredients,image from recipes where ingredients like :i"), {"i": "%" + ingredients[0] + "%"}).fetchall()
             for each in recipes:
                 result = {"url": each[0], "ingredients": each[1], "image": each[2]}
                 results.append(result)
