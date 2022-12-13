@@ -3,15 +3,17 @@ import secrets
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
+from sqlalchemy.orm import sessionmaker
 from pathlib import Path
 import zipfile
 
-with zipfile.ZipFile("./pantry/models/recipes.db.zip", 'r') as zip_ref:
-    zip_ref.extractall("./pantry/models/recipes.db")
-
 
 current_directory = Path.cwd()
+
+with zipfile.ZipFile(os.path.join(current_directory, 'pantry', 'models', 'recipes.db.zip'), 'r') as zip_ref:
+    zip_ref.extractall(os.path.join(current_directory, 'pantry', 'models'))
+
+
 app = Flask('pantry', instance_relative_config=True)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///./pantry/models/recipes.db'  # whatever we name our database
 app.config['SQLALCHEMY_BINDS'] = {'recipes': 'sqlite:///./pantry/models/recipes.db'}
