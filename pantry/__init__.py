@@ -5,6 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from pathlib import Path
+import zipfile
+
+with zipfile.ZipFile("./pantry/models/recipes.db.zip", 'r') as zip_ref:
+    zip_ref.extractall("./pantry/models/recipes.db")
 
 
 current_directory = Path.cwd()
